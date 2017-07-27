@@ -13,7 +13,7 @@
 #"CREATE TABLE if not exists table_csp (id INTEGER PRIMARY KEY UNIQUE ON CONFLICT REPLACE, name UNIQUE ON CONFLICT REPLACE, value);"
 
 ##init skf
-insert into table_skf (name, path, signtype, pin_verify) values("hbcmbc", "C:\WINDOWS\SysWOW64\hbcmbc86.dll", "digest", "1");
+insert into table_skf (name, path, signtype, pin_verify) values("hbcmbc", "C:\WINDOWS\system32\hbcmbc.dll", "digest", "1");
 ##insert into table_skf (name, path, signtype, pin_verify) values("BOIMCCSP11IS3K", "C:\Windows\system32\BOIMCCSP11IS3K.dll", "data", "0");
 ##insert into table_skf (name, path, signtype, pin_verify) values("BOIMCCSP11IS3K", "C:\Windows\system32\BOIMCCSP11IS3K.dll", "data", "0");
 ##insert into table_skf (name, path, signtype, pin_verify) values("BOIMCCSP11IS3K", "C:\Windows\system32\BOIMCCSP11IS3K.dll", "data", "0");

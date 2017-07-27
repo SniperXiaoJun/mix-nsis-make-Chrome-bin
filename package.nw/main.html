@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <title>民生企业银行</title>
+
+  <link href="dist/css/base.css" rel="stylesheet">
+  <link href="dist/css/main.css" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="wrapper">
+
+  <div  class="header">
+    <ul class="pull-left nav-control">
+      <li><a href="#" class="btn-back"> </a></li>
+      <li><a href="#" class="btn-forward"> </a></li>
+    </ul>
+
+    <ul class="pull-right win-control">
+      <li><a href="#" class="btn-minimize"><i class="icon ion-ios-minus-empty"></i></a></li>
+      <li><a href="#" class="btn-close"><i class="icon ion-ios-close-empty"></i></a></li>
+    </ul>
+
+    <ul class="nav nav-pills">
+      <li id="nav-home" role="presentation" class="active">
+        <a href="#page-home">我的网银</a>
+      </li>
+      <li class="separator"></li>
+      <li id="nav-secure" role="presentation">
+        <a href="#page-secure">系统检测</a>
+      </li>
+      <!--<li class="separator"></li>-->
+      <!--<li id="nav-device" role="presentation">-->
+        <!--<a href="#page-device">U宝管理</a>-->
+      <!--</li>-->
+      <li class="separator"></li>
+      <li id="nav-cert" role="presentation">
+        <a href="#page-cert">证书管理</a>
+      </li>
+      <li class="separator"></li>
+      <li id="nav-download" role="presentation">
+        <a href="#page-download">下载管理</a>
+      </li>
+    </ul>
+  </div>
+
+  <div id="page-ct" class="tab-content">
+
+    <div id="page-home" role="tabpanel" class="tab-pane active">
+      <!--<iframe id="browser" src="about:blank" nwfaketop nwdisable></iframe>-->
+    </div><!-- page-home -->
+
+    <div id="page-secure" role="tabpanel" class="tab-pane ">
+
+      <div class="p-header">
+        <a class="logo"></a>
+      </div>
+
+      <div class="p-content">
+        <div class="detecting">
+
+          <div class="top">
+            <img src="dist/img/detect.png"/>
+            <div class="top-title">
+              <h3>正在为您的网银环境体检</h3>
+              <p></p>
+            </div>
+            <div class="top-btns">
+              <button id="start-btn" class="btn pull-right">开始检测</button>
+              <button id="cancel-btn" class="btn pull-right ">取消</button>
+              <button id="restart-btn" class="btn pull-right">重新检测</button>
+              <button id="fix-all-btn" class="btn pull-right ">一键修复</button>
+            </div>
+          </div>
+
+          <div class="detect-list">
+            <h3 class="danger-title"><img src="dist/img/icon-error.png">异常项目（<span class="itemCount">0</span>）</h3>
+            <ul class="danger-list">
+              <!--<li>检测控件<a class="btn btn-xs btn-danger pull-right">危险</a>  <a class="btn btn-xs btn-info pull-right">详情</a>  <a class="btn btn-xs btn-success pull-right">修复</a></li>-->
+            </ul>
+            <div class="h-separator"></div>
+            <h3 class="warning-title"><img src="dist/img/icon-warning.png">警告项目（<span class="itemCount">0</span>）</h3>
+            <ul class="warning-list">
+              <!--<li>检测控件  <a class="btn btn-xs btn-warning pull-right">警告</a> <a class="btn btn-xs btn-info pull-right">详情</a></li>-->
+            </ul>
+            <div class="h-separator"></div>
+            <h3 class="safe-title"><img src="dist/img/icon-success.png">正常项目（<span class="itemCount">0</span>）</h3>
+            <ul class="safe-list">
+              <!--<li>检测控件  <a class="btn btn-xs btn-success pull-right">正常</a> <a class="btn btn-xs btn-info pull-right">详情</a></li>-->
+            </ul>
+          </div>
+        </div><!-- end of detecting -->
+
+        <div class="summary">
+          <div class="top">
+            <img src="dist/img/detect.png"/>
+            <div class="top-left">
+              <h3>您还没有对网银环境进行安全检测，建议立即进行检测！</h3>
+              <p>上次安全检测时间：2015年01月30日 16：09<br/>
+                为确保民生银行网银环境正常，建议您每次使用时进行安全检测</p>
+            </div>
+          </div>
+        </div><!-- end of summary -->
+      </div>
+    </div><!-- page-secure -->
+
+    <div id="page-cert" role="tabpanel" class="tab-pane ">
+      <div class="p-header">
+        <a class="logo"></a>
+      </div>
+      <div class="p-content">
+        <div class="key-form">
+          <div class="left-ct">
+            <form>
+              <div class="form-group">
+                <label class="name">证书所在位置：</label>
+                <select>
+                  <option>U 宝</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="name">U宝序列号：</label>
+                <select class="ukey-selector"></select>
+              </div>
+              <div class="form-group">
+                <label class="name">证书：</label>
+                <select class="cert-selector"></select>
+              </div>
+              <div class="text-right">
+                <button type="button" id="reload-device" class="btn">刷新证书</button>
+              </div>
+            </form>
+
+            <div class="h-separator"></div>
+
+            <ul class="cert-detail">
+              <li><label>颁发者：</label><span id="cert-issuer"></span></li>
+              <li><label>序列号：</label><span id="cert-serialNumber"></span></li>
+              <li><label>有效期：</label><span id="cert-validDate"></span></li>
+              <li><label>证书链验证：</label><span id="cert-verify"></span></li>
+            </ul>
+            <div class="text-right">
+              <button id="show-cert-btn" class="btn">查看证书</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- page-cert -->
+
+    <div id="page-device" role="tabpanel" class="tab-pane ">
+      <div class="p-header">
+        <a class="logo"></a>
+      </div>
+      <div class="p-content">
+        <div class="key-form">
+          <div class="left-ct">
+            <form class="mgr-key">
+              <div class="form-group">
+                <label class="name pull-left">U宝：</label>
+                <select class="ukey-selector"></select>
+              </div>
+              <div class="text-right">
+                <button type="button" id="refresh-device" class="btn">刷新设备</button>
+              </div>
+            </form>
+
+            <div class="h-separator"></div>
+            <form class="mgr-password">
+              <div class="form-group">
+                <label class="name">旧密码：</label>
+                <input id="oldPasswd" name="oldPasswd" type="password">
+              </div>
+              <div class="form-group">
+                <label class="name">新密码：</label>
+                <input id="passwd" name="passwd" type="password">
+              </div>
+              <div class="form-group">
+                <label class="name">新密码确认：</label>
+                <input id="confirmPasswd" name="confirmPasswd" type="password">
+              </div>
+              <div class="tip">密码修改提示：<span class="form-hint">6~15数字或者字母</span></div>
+              <div class="text-right">
+                <button type="button" id="change-password" class="btn">修改口令</button>
+              </div>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div><!-- page-device -->
+
+    <div id="page-download" role="tabpanel" class="tab-pane">
+      <div class="p-header">
+        <a class="logo"></a>
+      </div>
+      <div class="p-content">
+        <div class="sidebar">
+          <ul class="nav nav-pills">
+            <li id="downloading-btn" role="presentation" class="active">
+              <a href="#downloading">
+                <img src="./dist/img/icon-downloading.png">
+                <span>正在下载</span>
+              </a>
+            </li>
+            <li id="downloaded-btn" class="selected" role="presentation">
+              <a href="#downloaded">
+                <img src="./dist/img/icon-downloaded.png">
+                <span>已完成</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="tab-content">
+          <ul id="downloading" role="tabpanel" class="tab-pane download-list active">
+          </ul>
+          <ul id="downloaded" role="tabpanel" class="tab-pane download-list">
+          </ul>
+        </div>
+        <div class="footer">
+          <button id="clearAll" class="btn btn-info">清空全部下载</button>
+        </div>
+      </div>
+    </div><!-- page-download -->
+
+  </div>
+
+</div>
+
+<!-- load 3rd libraries -->
+<script src="dist/js/base.js"></script>
+
+
+<script src="dist/js/main.js"></script>
+
+</body>
+</html>

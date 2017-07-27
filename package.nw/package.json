@@ -1,0 +1,41 @@
+{
+  "main": "main.html",
+  "name": "MinSheng Enterprice Bank",
+  "description": "MinSheng Enterprice Bank",
+  "version": "1.0.10",
+  "keywords": [],
+  "window": {
+    "title": "MinSheng Enterprice Bank",
+    "icon": "dist/img/app_logo.png",
+    "show": false,
+    "width": 1,
+    "height": 1,
+    "min_width": 1,
+    "min_height": 1,
+    "toolbar": false,
+    "frame": false,
+    "transparent": false
+  },
+  "webkit": {
+    "plugin": true
+  },
+  "webview": {
+    "partitions": [
+      {
+        "name": "trusted",
+        "accessible_resources": [
+          "<all_urls>"
+        ]
+      }
+    ]
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "laravel-elixir": "^6.0.0-15"
+  },
+  "scripts": {
+    "prod": "gulp --production",
+    "dev": "gulp watch"
+  },
+  "chromium-args": "--disable-gpu --force-cpu-draw --incognito"
+}

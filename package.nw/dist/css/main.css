@@ -1,0 +1,610 @@
+@charset "UTF-8";
+#keyPlugin {
+  width: 0;
+  height: 0;
+  visibility: hidden;
+  position: absolute;
+}
+
+html, body, .wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+/**
+ * 顶部样式，包含：
+ * 窗口控制按钮
+ * 前进后退
+ * 页面 nav 按钮
+ */
+.header {
+  position: fixed;
+  z-index: 999;
+  width: 100%;
+  height: 43px;
+  background: url(../../dist/img/bg-header.png) repeat-x;
+}
+
+.header .nav-control {
+  padding: 0 15px;
+  height: 100%;
+}
+
+.header .nav-control li {
+  list-style: none;
+  float: left;
+  height: 100%;
+}
+
+.header .nav-control a {
+  -webkit-app-region: no-drag;
+  width: 36px;
+  height: 100%;
+  display: block;
+  background: center center no-repeat;
+}
+
+.header .nav-control .btn-back {
+  background-image: url(../../dist/img/btn-back.png);
+}
+
+.header .nav-control .btn-back:hover {
+  background-image: url(../../dist/img/btn-back-hover.png);
+}
+
+.header .nav-control .btn-forward {
+  background-image: url(../../dist/img/btn-forward.png);
+}
+
+.header .nav-control .btn-forward:hover {
+  background-image: url(../../dist/img/btn-forward-hover.png);
+}
+
+.header .win-control {
+  padding: 0 15px;
+}
+
+.header .win-control li {
+  list-style: none;
+  float: left;
+}
+
+.header .win-control a {
+  -webkit-app-region: no-drag;
+  padding: 0 8px;
+  display: block;
+  color: #393939;
+  font-weight: 200;
+  font-size: 30px;
+}
+
+.header .nav {
+  -webkit-app-region: no-drag;
+  float: right;
+  height: 100%;
+}
+
+.header .nav li {
+  width: 110px;
+  height: 100%;
+  margin: 0;
+  text-align: center;
+  font-size: 12px;
+}
+
+.header .nav li a {
+  display: inline-block;
+  height: 100%;
+  padding: 14px 0 0 26px;
+  color: #626262;
+  background: no-repeat left center;
+}
+
+.header .nav li a:hover {
+  color: #3a83d1;
+}
+
+.header .nav li.active a, .header .nav li.active a:hover {
+  color: #3a83d1;
+  background-color: transparent;
+}
+
+.header .nav li.separator {
+  height: 12px;
+  width: 2px;
+  background: #9d9d9d;
+  margin: 15px 10px;
+  padding: 0;
+}
+
+.header .nav #nav-home a {
+  background-image: url(../../dist/img/icon-user.png);
+}
+
+.header .nav #nav-home a:hover, .header .nav #nav-home.active a {
+  background-image: url(../../dist/img/icon-user-hover.png);
+}
+
+.header .nav #nav-secure a {
+  background-image: url(../../dist/img/icon-scan.png);
+}
+
+.header .nav #nav-secure a:hover, .header .nav #nav-secure.active a {
+  background-image: url(../../dist/img/icon-scan-hover.png);
+}
+
+.header .nav #nav-device a {
+  padding-left: 36px;
+  background-image: url(../../dist/img/icon-ukey.png);
+}
+
+.header .nav #nav-device a:hover, .header .nav #nav-device.active a {
+  background-image: url(../../dist/img/icon-ukey-hover.png);
+}
+
+.header .nav #nav-cert a {
+  background-image: url(../../dist/img/icon-cert2.png);
+}
+
+.header .nav #nav-cert a:hover, .header .nav #nav-cert.active a {
+  background-image: url(../../dist/img/icon-cert2-hover.png);
+}
+
+.header .nav #nav-download a {
+  background-image: url(../../dist/img/icon-download.png);
+}
+
+.header .nav #nav-download a:hover, .header .nav #nav-download.active a {
+  background-image: url(../../dist/img/icon-download-hover.png);
+}
+
+#page-ct {
+  position: absolute;
+  top: 43px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+#page-ct .tab-pane {
+  width: 100%;
+  height: 100%;
+  background: url(../../dist/img/bg-blue.jpg) 0 0 repeat;
+}
+
+.p-header {
+  width: 100%;
+  height: 68px;
+  background: #f2f5fa;
+}
+
+.p-header a {
+  display: block;
+  width: 370px;
+  height: 100%;
+  background: url("../../dist/img/logo.png") 15px center no-repeat;
+}
+
+.p-content {
+  width: 100%;
+}
+
+#page-home iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/**
+ * 设备与证书页面共享样式
+ */
+.key-form {
+  width: 75%;
+  min-width: 900px;
+  margin: 100px auto;
+  color: #fff;
+  background: right 10px no-repeat;
+  padding-bottom: 40px;
+  font-size: 16px;
+}
+
+.key-form .left-ct {
+  width: 550px;
+}
+
+.key-form .left-ct form {
+  width: 100%;
+  padding: 0 20px;
+}
+
+.key-form .h-separator {
+  width: 100%;
+  height: 60px;
+  background: url(../../dist/img/h-separator.png) center center no-repeat;
+}
+
+.key-form .form-group {
+  position: relative;
+  height: 35px;
+  margin-bottom: 20px;
+}
+
+.key-form .form-group select, .key-form .form-group input {
+  width: 370px;
+  height: 100%;
+  border-radius: 2px;
+  background: transparent;
+  border: #ffffff 1px solid;
+  padding-left: 6px;
+  line-height: 35px;
+  float: right;
+}
+
+.key-form .form-group .name {
+  line-height: 35px;
+}
+
+.key-form .form-group option {
+  color: #333;
+}
+
+.key-form button.btn {
+  font-size: 16px;
+  width: 106px;
+  height: 40px;
+  background: #5ba6e6;
+  padding: 0;
+}
+
+/**
+ * 设备管理页面
+ */
+#page-device .key-form {
+  background: url(../../dist/img/icon-key.png) right 10px no-repeat;
+}
+
+#page-device .key-form .left-ct .tip {
+  color: #e3e3e3;
+  margin: 20px 0;
+}
+
+/**
+ * 证书管理页面
+ */
+#page-cert .key-form {
+  background: url(../../dist/img/icon-cert.png) right 10px no-repeat;
+}
+
+#page-cert .key-form .left-ct form, #page-cert .key-form .left-ct .cert-detail {
+  width: 100%;
+  padding: 0 10px;
+}
+
+#page-cert .cert-detail {
+  width: 100%;
+  padding: 0;
+}
+
+#page-cert .cert-detail li {
+  list-style: none;
+  width: 100%;
+  padding-bottom: 20px;
+}
+
+#page-cert .cert-detail span {
+  margin-left: 4px;
+}
+
+/**
+ * 安全检测页面
+ */
+#page-secure .p-content {
+  position: absolute;
+  top: 68px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #fff;
+}
+
+#page-secure .detecting {
+  width: 100%;
+  position: relative;
+  height: 100%;
+}
+
+#page-secure .detecting .top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 120px;
+  width: 100%;
+  padding: 0 120px 0 80px;
+  background: #3689cf;
+  border-bottom: solid 1px #d6d6d6;
+}
+
+#page-secure .detecting .top img {
+  height: 85px;
+  width: 85px;
+  float: left;
+  margin-top: 20px;
+  display: block;
+}
+
+#page-secure .detecting .top .top-title {
+  float: left;
+  margin: 0;
+  padding: 15px 20px;
+  color: #fff;
+}
+
+#page-secure .detecting .top .top-title h3 {
+  font-size: 24px;
+}
+
+#page-secure .detecting .top .top-title p {
+  font-size: 14px;
+}
+
+#page-secure .detecting .top .top-btns {
+  float: right;
+  height: 100%;
+  overflow: hidden;
+}
+
+#page-secure .detecting .top .top-btns button {
+  font-size: 16px;
+  height: 42px;
+  width: 100px;
+  background: #fff;
+  margin-left: 15px;
+  margin-top: 39px;
+}
+
+#page-secure .detecting .top .top-btns #start-btn {
+  color: #09a400;
+}
+
+#page-secure .detecting .top .top-btns #cancel-btn {
+  color: #ff4000;
+  display: none;
+}
+
+#page-secure .detecting .top .top-btns #restart-btn {
+  color: #ffa300;
+  display: none;
+}
+
+#page-secure .detecting .top .top-btns #fix-all-btn {
+  color: #09a400;
+  display: none;
+}
+
+#page-secure .detecting .detect-list {
+  position: absolute;
+  top: 120px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow-y: auto;
+  padding: 0 120px 0 60px;
+}
+
+#page-secure .detecting .detect-list h3 {
+  width: 100%;
+  overflow: hidden;
+  font-size: 16px;
+  padding: 0;
+}
+
+#page-secure .detecting .detect-list h3 img {
+  margin: 0 10px 0 5px;
+}
+
+#page-secure .detecting .detect-list ul {
+  width: 100%;
+  font-size: 12px;
+}
+
+#page-secure .detecting .detect-list ul li {
+  list-style: none;
+  color: #a9a9a9;
+  padding: 8px 0;
+}
+
+#page-secure .detecting .detect-list ul .btn {
+  margin-left: 10px;
+  cursor: none;
+}
+
+#page-secure .detecting .detect-list ul p {
+  margin: 10px 0 10px 1em;
+  color: #d9534f;
+  line-height: 2em;
+}
+
+#page-secure .detecting .detect-list .h-separator {
+  background: #d6d6d7;
+  height: 1px;
+  width: 100%;
+  margin: 20px 0;
+}
+
+#page-secure .summary {
+  width: 100%;
+  height: 530px;
+  position: absolute;
+  left: 0;
+  display: none;
+}
+
+#page-secure .summary .top-left {
+  float: right;
+  width: 360px;
+  height: 100%;
+}
+
+#page-secure .summary .top-left p {
+  margin-top: 10px;
+  line-height: 22px;
+}
+
+#page-secure .summary .top-left button {
+  margin: 75px auto;
+}
+
+#page-download .p-content {
+  position: absolute;
+  top: 68px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #fff;
+}
+
+#page-download .p-content .sidebar {
+  width: 240px;
+  height: 100%;
+  background: #3585CA;
+  color: #ffffff;
+  position: relative;
+  float: left;
+}
+
+#page-download .p-content .sidebar ul {
+  padding-top: 20px;
+  padding-left: 0;
+}
+
+#page-download .p-content .sidebar ul li {
+  position: relative;
+  line-height: 50px;
+  width: 100%;
+  font-size: 18px;
+}
+
+#page-download .p-content .sidebar ul li img {
+  margin-left: 50px;
+  margin-right: 10px;
+}
+
+#page-download .p-content .sidebar ul li a {
+  background: transparent;
+  color: #ffffff;
+  padding: 0;
+}
+
+#page-download .p-content .sidebar .nav-pills > li + li {
+  margin-left: 0px;
+}
+
+#page-download .p-content .sidebar .active {
+  background: #0B528E;
+}
+
+#page-download .p-content .tab-content {
+  top: 0;
+}
+
+#page-download .p-content .tab-content .download-list {
+  margin-left: 240px;
+  background: #fff;
+  padding: 0;
+}
+
+#page-download .p-content .tab-content .download-list li {
+  list-style: none;
+  height: 84px;
+  font-size: 18px;
+  padding-top: 18px;
+  padding-left: 34px;
+  border-bottom: 1px solid #E4E4E4;
+  position: relative;
+}
+
+#page-download .p-content .tab-content .download-list li .left {
+  width: 100%;
+}
+
+#page-download .p-content .tab-content .download-list li .left img {
+  float: left;
+  width: 40px;
+  height: 50px;
+  margin-right: 16px;
+}
+
+#page-download .p-content .tab-content .download-list li .left span {
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+#page-download .p-content .tab-content .download-list li .left .progress {
+  width: 352px;
+  height: 14px;
+  border-radius: 14px;
+  margin-top: 6px;
+}
+
+#page-download .p-content .tab-content .download-list li .left .progress .progress-bar {
+  position: relative;
+}
+
+#page-download .p-content .tab-content .download-list li .left .progress .progress-bar span {
+  font-size: 12px;
+  color: #4BAB2A;
+  position: absolute;
+  top: -2px;
+  left: 100%;
+  margin-left: 4px;
+}
+
+#page-download .p-content .tab-content .download-list li .right {
+  position: absolute;
+  right: 300px;
+  top: 30px;
+}
+
+#page-download .p-content .tab-content .download-list li .right .open-dir, #page-download .p-content .tab-content .download-list li .right .delete-file, #page-download .p-content .tab-content .download-list li .right .execute-file {
+  width: 110px;
+  height: 36px;
+  float: right;
+  margin-right: 30px;
+  cursor: pointer;
+}
+
+#page-download .p-content .tab-content .download-list li .right .open-dir img, #page-download .p-content .tab-content .download-list li .right .delete-file img, #page-download .p-content .tab-content .download-list li .right .execute-file img {
+  margin-right: 12px;
+}
+
+#page-download .p-content .tab-content .download-list li .right .cancel-dw, #page-download .p-content .tab-content .download-list li .right .downloading-control {
+  width: 110px;
+  height: 36px;
+  float: right;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#page-download .p-content .tab-content .download-list li .right .cancel-dw img, #page-download .p-content .tab-content .download-list li .right .downloading-control img {
+  margin-right: 12px;
+}
+
+#page-download .p-content .footer {
+  position: absolute;
+  bottom: 25px;
+  left: 240px;
+  height: 68px;
+  line-height: 68px;
+  width: 100%;
+  border-top: 1px solid #ECECEC;
+}
+
+#page-download .p-content .footer button {
+  float: right;
+  margin: 18px 340px;
+  background: #5BA6E6;
+}
+
+/*# sourceMappingURL=main.css.map */

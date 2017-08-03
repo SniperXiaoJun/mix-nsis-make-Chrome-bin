@@ -461,8 +461,8 @@ var app = new function() {
   this.observers = [];
 
   this.LOGIN_URL = 'https://ent.cmbc.com.cn/eweb/static/login.html';
-  this.CSP_LOGIN_URL = 'https://111.205.207.146/eweb/static/loginKey.html';
-  this.SKF_LOGIN_URL = 'https://111.205.207.146/eweb/static/loginKey.html';
+  this.CSP_LOGIN_URL = 'https://111.205.207.146:10020/eweb/static/loginKey.html';
+  this.SKF_LOGIN_URL = 'https://111.205.207.146:10020/eweb/static/loginKey.html';
   this.NO_KEY_URL = 'http://www.cmbc.com.cn/netbankmsg/clientnocert.html';
 
   this.register = function (observer){

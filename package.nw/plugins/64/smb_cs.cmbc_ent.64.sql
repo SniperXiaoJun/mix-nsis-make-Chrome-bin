@@ -14,6 +14,7 @@
 
 ##init skf
 insert into table_skf (name, path, signtype, pin_verify) values("hbcmbc", "C:\WINDOWS\SysWOW64\hbcmbc86.dll", "digest", "1");
+insert into table_skf (name, path, signtype, pin_verify) values("watch", "C:\Windows\SysWOW64\WatchData\Watch CSP for CMBC V1.0\WDSKF.dll", "digest", "0");
 ##insert into table_skf (name, path, signtype, pin_verify) values("BOIMCCSP11IS3K", "C:\Windows\system32\BOIMCCSP11IS3K.dll", "data", "0");
 ##insert into table_skf (name, path, signtype, pin_verify) values("BOIMCCSP11IS3K", "C:\Windows\system32\BOIMCCSP11IS3K.dll", "data", "0");
 ##insert into table_skf (name, path, signtype, pin_verify) values("BOIMCCSP11IS3K", "C:\Windows\system32\BOIMCCSP11IS3K.dll", "data", "0");

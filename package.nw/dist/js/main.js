@@ -460,8 +460,8 @@ var app = new function() {
   var me = this;
   this.observers = [];
 
-  this.LOGIN_URL = 'https://ent.cmbc.com.cn/eweb/static/login.html';
-  this.CSP_LOGIN_URL = 'https://111.205.207.146/eweb/static/loginKey.html';
+  this.LOGIN_URL = 'https://111.205.207.143:55902/eweb/static/login.html';
+  this.CSP_LOGIN_URL = 'https://111.205.207.143:8443/eweb/static/loginKeyNoSSL.html';
   this.SKF_LOGIN_URL = 'https://111.205.207.146/eweb/static/loginKey.html';
   this.NO_KEY_URL = 'http://www.cmbc.com.cn/netbankmsg/clientnocert.html';
 
@@ -1373,7 +1373,7 @@ var securePage = new function () {
     detectPlugin("CFCA CryptoKit CMBC 3.2");
     detectPlugin("CFCA CryptoKit CMBC U2 3.0");
     // 检查网银站点
-    detectBankWebsite('ent.cmbc.com.cn', 'eweb/static/login.html', 443);
+    detectBankWebsite('111.205.207.143', 'eweb/static/login.html', 55902);
 
 
     handleResultQueue();

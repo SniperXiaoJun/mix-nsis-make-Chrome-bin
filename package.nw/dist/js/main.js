@@ -181,7 +181,7 @@ NPBank.prototype.removeListener = function (event, handler) {
  *
  *  如果是 NULL, 就认为没插入设备; (JSON结构还能返回null？)
  *  如果全是 CSP 设备，就认为是 CSP 设备;
- *  如果全是 SKF 设备，就认为是 SFK 设备;
+ *  如果全是 SKF 设备，就认为是 SKF 设备;
  *  如果既有 SKF 又有 CSP 设备，那你就自己决定吧！！！
  *
  */
@@ -463,7 +463,6 @@ var app = new function() {
   this.LOGIN_URL = 'https://111.205.207.143:55902/eweb/static/login.html';
   this.CSP_LOGIN_URL = 'https://111.205.207.143:8443/eweb/static/loginKeyNoSSL.html';
   this.SKF_LOGIN_URL = 'https://111.205.207.146/eweb/static/loginKey.html';
-  this.NO_KEY_URL = 'http://www.cmbc.com.cn/netbankmsg/clientnocert.html';
 
   this.register = function (observer){
     me.observers.push(observer);
@@ -1475,17 +1474,22 @@ var homePage = new function () {
   function switchLoginPage(keyType){
     if ($('#page-home iframe').length>0){
       var currentSrc = $('#page-home iframe').prop('src');
+	  
+	  
+	  
 
       // 只在登录页面做切换处理
-      if (currentSrc != app.CSP_LOGIN_URL && currentSrc != app.SKF_LOGIN_URL && currentSrc != app.NO_KEY_URL && currentSrc != app.LOGIN_URL) {
+      if (currentSrc != app.CSP_LOGIN_URL && currentSrc != app.SKF_LOGIN_URL && currentSrc != app.LOGIN_URL) {
         return;
       }
 
       $('#page-home').html();
     }
 
-    var src = keyType ? ( keyType=='SFK'? app.SKF_LOGIN_URL : app.CSP_LOGIN_URL ) : app.LOGIN_URL;
+    var src = keyType ? ( keyType=='SKF'? app.SKF_LOGIN_URL : app.CSP_LOGIN_URL ) : app.LOGIN_URL;
 
+	alert("\nkeyType=" + keyType +"\nsrc=" + src + "\ncurrentSrc="+ currentSrc);
+	
     $('#page-home').html('<iframe id="browser" name="'+ Date.now() +'" src="'+src+'" nwfaketop nwdisable></iframe>');
   }
 

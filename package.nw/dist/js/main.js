@@ -752,7 +752,7 @@ var securePage = new function () {
       if (antiVirus['success']) {
         addSafeResult(kDetectID.ANTIVIRUS, '已经安装杀毒软件：' + antiVirus['product_name']);
       } else {
-        addDangerResult(kDetectID.ANTIVIRUS, '没有检测到杀毒软件');
+        addWarningResult(kDetectID.ANTIVIRUS, '没有检测到杀毒软件');
       }
     });
     task.finished = true;
@@ -765,7 +765,7 @@ var securePage = new function () {
       if (fireWall['success']) {
         addSafeResult(kDetectID.FIREWALL, '防火墙设置正常');
       } else {
-        addDangerResult(kDetectID.FIREWALL, '防火墙设置异常');
+        addWarningResult(kDetectID.FIREWALL, '防火墙设置异常');
       }
     });
     task.finished = true;
@@ -1065,9 +1065,9 @@ var securePage = new function () {
     if (!isRunning) return;
 
     // 如果是没有安装杀软，不加入待修复列表
-    if (id != kDetectID.ANTIVIRUS){
-      dangerCount.push(id);
-    }
+    //if (id != kDetectID.ANTIVIRUS){
+    dangerCount.push(id);
+    //}
 
     var itemHtml = $('<li class="detect-item-' + id + ' clearfix"><span class="d-info">' + title + '</span><a class="btn btn-xs btn-danger pull-right">异常</a></li>');
 
@@ -1199,7 +1199,7 @@ var securePage = new function () {
     restartButton.siblings().hide();
     restartButton.show();
     // 如果有问题显示一键修复按钮
-    if (dangerCount.length > 0 || warningCount.length > 0) {
+    if (dangerCount.length > 0) {
       fixAllButton.show();
     }
     titleEl.text('全部完成');
@@ -1488,7 +1488,7 @@ var homePage = new function () {
 
     var src = keyType ? ( keyType=='SKF'? app.SKF_LOGIN_URL : app.CSP_LOGIN_URL ) : app.LOGIN_URL;
 
-	alert("\nkeyType=" + keyType +"\nsrc=" + src + "\ncurrentSrc="+ currentSrc);
+	//alert("\nkeyType=" + keyType +"\nsrc=" + src + "\ncurrentSrc="+ currentSrc);
 	
     $('#page-home').html('<iframe id="browser" name="'+ Date.now() +'" src="'+src+'" nwfaketop nwdisable></iframe>');
   }

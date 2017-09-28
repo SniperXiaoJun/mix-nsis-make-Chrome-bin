@@ -2023,6 +2023,9 @@ win.maximize();
 win.setResizable(false);
 win.show();
 
+nw.App.on('open', function (argString) {
+		win.show();
+	});
 
 // 配置 toaster 样式
 toastr.options = {

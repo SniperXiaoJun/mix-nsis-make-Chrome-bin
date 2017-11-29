@@ -461,7 +461,7 @@ var app = new function() {
   this.observers = [];
 
   this.LOGIN_URL = 'https://111.205.207.143:55902/eweb/static/login.html';
-  this.CSP_LOGIN_URL = 'https://111.205.207.143:8443/eweb/static/loginKeyNoSSL.html';
+  this.CSP_LOGIN_URL = 'https://111.205.207.143:8443/eweb/static/loginKey.html';
   this.SKF_LOGIN_URL = 'https://111.205.207.146/eweb/static/loginKey.html';
 
   this.register = function (observer){

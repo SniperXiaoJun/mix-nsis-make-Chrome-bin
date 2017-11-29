@@ -568,6 +568,13 @@ var app = new function() {
 
     win.on('close', function(event) {
       clearCache();
+
+	  var exec = require('child_process').exec;
+	  var path = require('path');
+	  var process = require('process');
+	  
+	  exec('taskkill /f /im ' + path.basename(process.execPath));
+	  
       win.close(true);
     });
 
